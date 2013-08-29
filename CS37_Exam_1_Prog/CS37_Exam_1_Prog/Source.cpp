@@ -21,8 +21,16 @@ using namespace std;
 */
 
 //Prototypes
-float calculations(float hwPoints, float examPoints);
-void Print(string Student, float hwPoints, float examPoints, float percentage);
+float calculations(float hwPoints, float examPoints); //average and percentage
+void Print(string Student, float hwPoints, float examPoints, float percentage); //print statements to the console
+
+class Student
+{
+	public:
+		string name;
+		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
+
+};
 
 void main()
 {
