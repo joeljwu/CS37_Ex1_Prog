@@ -20,8 +20,16 @@ using namespace std;
 	6. Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
 */
 
+//Prototypes
+float calculations(float hwPoints, float examPoints);
+void Print(string Student, float hwPoints, float examPoints, float percentage);
+
 void main()
 {
 	//Code goes here
+	float HW1, HW2, HW3 = 0.0;
+	float EX1, EX2 = 0.0;
+	float classPct = 0.0;
+
 	system("PAUSE");
 }
