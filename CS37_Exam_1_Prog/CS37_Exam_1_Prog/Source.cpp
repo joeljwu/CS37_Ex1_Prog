@@ -19,11 +19,6 @@ using namespace std;
 	5. Calculate and print the average exam 1 score and the average exam 2 score
 	6. Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
 */
-
-//Prototypes
-float calculations(float hwPoints, float examPoints); //average and percentage
-void Print(string Student, float hwPoints, float examPoints, float percentage); //print statements to the console
-
 class Student
 {
 	public:
@@ -31,15 +26,54 @@ class Student
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
 };
 
+//Prototypes
+void Roster(Student tempRoster[5]);
+float Calculations(float hwPts, float examPts);
+
 void main()
 {
 	//Code goes here
-	float HW1, HW2, HW3 = 0.0;
-	float EX1, EX2 = 0.0;
-	float classPct = 0.0;
-	Student Roster[5];
+	Student Students[5];
 
-	cout << "Enter a name: " << endl;
-	cin.getline(Roster[0].name, 32);
-	cout.write(Roster[0].name, strlen(Roster[0].name)) << endl;
+	Roster(Students);
 }
+
+void Roster(Student tempRoster[5]) //Student info
+{
+	float hwTotal;
+	float exTotal;
+	float cPercentage;
+
+	for(int i = 0; i < 5; i++)
+	{
+		cout << "Enter a name: " << endl;
+		cin.getline(tempRoster[i].name, 32);
+		cout << "Enter Homework 1 points: " << endl;
+		cin >> tempRoster[i].HWK1;
+		cout << "Enter Homework 2 points: " << endl;
+		cin >> tempRoster[i].HWK2;
+		cout << "Enter Homework 3 points: " << endl;
+		cin >> tempRoster[i].HWK3;
+		hwTotal = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
+		exTotal = tempRoster[i].EXM1 + tempRoster[i].EXM2;
+		cPercentage = Calculations(hwTotal, exTotal);
+		//Buffer needs to be cleared out here
+	}
+}
+
+float Calculations(float hwPts, float examPts) //Calculate averages and percentages
+{
+	float percentage;
+	percentage = (hwPts / 1.875) + (examPts / 3.333);
+	return percentage;
+}
+
+void Print(Student localRoster[5]) //Print Student/Class information
+{
+	//Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
+	//Calculate and print the average exam 1 score and the average exam 2 score
+	//Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
+}
+
+
+

@@ -1,11 +1,9 @@
-﻿Build started 9/1/13 2:09:37 PM.
+﻿Build started 9/1/13 2:47:40 PM.
      1>Project "C:\Users\Raul\Documents\GitHub\CS37_Ex1_Prog\CS37_Exam_1_Prog\CS37_Exam_1_Prog\CS37_Exam_1_Prog.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
-     1>c:\users\raul\documents\github\cs37_ex1_prog\cs37_exam_1_prog\cs37_exam_1_prog\source.cpp(37): warning C4101: 'HW1' : unreferenced local variable
-     1>c:\users\raul\documents\github\cs37_ex1_prog\cs37_exam_1_prog\cs37_exam_1_prog\source.cpp(38): warning C4101: 'EX1' : unreferenced local variable
-     1>c:\users\raul\documents\github\cs37_ex1_prog\cs37_exam_1_prog\cs37_exam_1_prog\source.cpp(37): warning C4101: 'HW2' : unreferenced local variable
+     1>c:\users\raul\documents\github\cs37_ex1_prog\cs37_exam_1_prog\cs37_exam_1_prog\source.cpp(66): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Raul\Documents\GitHub\CS37_Ex1_Prog\CS37_Exam_1_Prog\Debug\CS37_Exam_1_Prog.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Raul\Documents\GitHub\CS37_Ex1_Prog\CS37_Exam_1_Prog\Debug\CS37_Exam_1_Prog.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Raul\Documents\GitHub\CS37_Ex1_Prog\CS37_Exam_1_Prog\Debug\CS37_Exam_1_Prog.lib" /MACHINE:X86 Debug\Source.obj
          CS37_Exam_1_Prog.vcxproj -> C:\Users\Raul\Documents\GitHub\CS37_Ex1_Prog\CS37_Exam_1_Prog\Debug\CS37_Exam_1_Prog.exe
@@ -13,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.78
+Time Elapsed 00:00:00.80
