@@ -27,9 +27,8 @@ void Print(string Student, float hwPoints, float examPoints, float percentage); 
 class Student
 {
 	public:
-		string name;
+		char name[32];
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
-
 };
 
 void main()
@@ -38,6 +37,9 @@ void main()
 	float HW1, HW2, HW3 = 0.0;
 	float EX1, EX2 = 0.0;
 	float classPct = 0.0;
+	Student Roster[5];
 
-	system("PAUSE");
+	cout << "Enter a name: " << endl;
+	cin.getline(Roster[0].name, 32);
+	cout.write(Roster[0].name, strlen(Roster[0].name)) << endl;
 }
