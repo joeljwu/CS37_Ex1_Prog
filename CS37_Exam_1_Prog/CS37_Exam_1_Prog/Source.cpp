@@ -7,9 +7,9 @@ using namespace std;
 	x Allow the user to enter in the data for each student
 	x For each student, calclate their total homework points, their total exam points, and their class percentage.
 		The formulas to use are as follows:
-			Total HW Points = HW1 + HW2 + HW3
-			Total Exam Points = EX1 + EX2
-			Class Percentage = (TotalHW / 1.875) + (TotalExam / 3.333) //The class percentage will range from 0 to 100
+			x Total HW Points = HW1 + HW2 + HW3
+			x Total Exam Points = EX1 + EX2
+			x Class Percentage = (TotalHW / 1.875) + (TotalExam / 3.333) //The class percentage will range from 0 to 100
 	3. Calculate the letter grade for each student based on the following scale:
 		90 - 100 = A
 		80 - 89.4 = B
@@ -25,7 +25,7 @@ using namespace std;
 class Student
 {
 	public:
-		char name[32];
+		char name[32], grade;
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
 };
 
@@ -69,7 +69,7 @@ void Roster(Student tempRoster[5])
 		exTotal = tempRoster[i].EXM1 + tempRoster[i].EXM2;
 		cPercentage = Calculations(hwTotal, exTotal);
 		//temp to test calculation return
-		cout << fixed << setprecision(2) << cPercentage << '\n';
+		//cout << fixed << setprecision(2) << cPercentage << '\n';
 	}
 }
 
@@ -77,7 +77,9 @@ void Roster(Student tempRoster[5])
 float Calculations(float hwPts, float examPts)
 {
 	float percentage;
+
 	percentage = (hwPts / 1.875) + (examPts / 3.333);
+
 	return percentage;
 }
 
