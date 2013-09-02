@@ -52,18 +52,24 @@ void Roster(Student tempRoster[5])
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << "Enter student name: " << endl;
+		cout << "Enter student name: ";
 		cin.getline(tempRoster[i].name, 32);
-		cout << "Enter " << tempRoster[i].name << "'s Homework 1 points: " << endl;
+		cout << "Enter " << tempRoster[i].name << "'s Homework 1 points: ";
 		cin >> tempRoster[i].HWK1;
-		cout << "Enter " << tempRoster[i].name << "'s  Homework 2 points: " << endl;
+		cout << "Enter " << tempRoster[i].name << "'s  Homework 2 points: ";
 		cin >> tempRoster[i].HWK2;
-		cout << "Enter  " << tempRoster[i].name << "'s Homework 3 points: " << endl;
+		cout << "Enter  " << tempRoster[i].name << "'s Homework 3 points: ";
 		cin >> tempRoster[i].HWK3;
+		cout << "Enter " << tempRoster[i].name << "'s Exam 1 points: ";
+		cin >> tempRoster[i].EXM1;
+		cout << "Enter " << tempRoster[i].name << "'s Exam 2 points: ";
+		cin >> tempRoster[i].EXM2;
 		cin.ignore(32, '\n');
 		hwTotal = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
 		exTotal = tempRoster[i].EXM1 + tempRoster[i].EXM2;
 		cPercentage = Calculations(hwTotal, exTotal);
+		//temp to test calculation return
+		cout << fixed << setprecision(2) << cPercentage << '\n';
 	}
 }
 
@@ -82,6 +88,3 @@ void Print(Student localRoster[5]) //Print Student/Class information
 	//Calculate and print the average exam 1 score and the average exam 2 score
 	//Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
 }
-
-
-
