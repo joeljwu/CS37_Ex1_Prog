@@ -1,10 +1,11 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 //TODO
 /*
-	1. Allow the user to enter in the data for each student
-	2. For each student, calclate their total homework points, their total exam points, and their class percentage.
+	x Allow the user to enter in the data for each student
+	x For each student, calclate their total homework points, their total exam points, and their class percentage.
 		The formulas to use are as follows:
 			Total HW Points = HW1 + HW2 + HW3
 			Total Exam Points = EX1 + EX2
@@ -19,6 +20,8 @@ using namespace std;
 	5. Calculate and print the average exam 1 score and the average exam 2 score
 	6. Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
 */
+
+//Student Class
 class Student
 {
 	public:
@@ -28,17 +31,20 @@ class Student
 
 //Prototypes
 void Roster(Student tempRoster[5]);
+void Print(Student localRoster[5]);
 float Calculations(float hwPts, float examPts);
 
+//Main
 void main()
 {
-	//Code goes here
 	Student Students[5];
 
 	Roster(Students);
+	Print(Students);
 }
 
-void Roster(Student tempRoster[5]) //Student info
+//Student Information
+void Roster(Student tempRoster[5])
 {
 	float hwTotal;
 	float exTotal;
@@ -46,28 +52,30 @@ void Roster(Student tempRoster[5]) //Student info
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << "Enter a name: " << endl;
+		cout << "Enter student name: " << endl;
 		cin.getline(tempRoster[i].name, 32);
-		cout << "Enter Homework 1 points: " << endl;
+		cout << "Enter " << tempRoster[i].name << "'s Homework 1 points: " << endl;
 		cin >> tempRoster[i].HWK1;
-		cout << "Enter Homework 2 points: " << endl;
+		cout << "Enter " << tempRoster[i].name << "'s  Homework 2 points: " << endl;
 		cin >> tempRoster[i].HWK2;
-		cout << "Enter Homework 3 points: " << endl;
+		cout << "Enter  " << tempRoster[i].name << "'s Homework 3 points: " << endl;
 		cin >> tempRoster[i].HWK3;
+		cin.ignore(32, '\n');
 		hwTotal = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
 		exTotal = tempRoster[i].EXM1 + tempRoster[i].EXM2;
 		cPercentage = Calculations(hwTotal, exTotal);
-		//Buffer needs to be cleared out here
 	}
 }
 
-float Calculations(float hwPts, float examPts) //Calculate averages and percentages
+//Calculate percentage for letter grade
+float Calculations(float hwPts, float examPts)
 {
 	float percentage;
 	percentage = (hwPts / 1.875) + (examPts / 3.333);
 	return percentage;
 }
 
+//Print all student information
 void Print(Student localRoster[5]) //Print Student/Class information
 {
 	//Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
