@@ -31,6 +31,7 @@ class Student
 	public:
 		char name[32], grade;
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
+		float TOTALHW, TOTALEX;
 };
 
 //Prototypes
@@ -50,7 +51,7 @@ void main()
 //Student Information
 void Roster(Student tempRoster[5])
 {
-	float hwTotal, exTotal, percentage;
+	float percentage;
 
 	for(int i = 0; i < 5; i++)
 	{
@@ -66,13 +67,15 @@ void Roster(Student tempRoster[5])
 		cin >> tempRoster[i].EXM1;
 		cout << "Enter " << tempRoster[i].name << "'s Exam 2 points: ";
 		cin >> tempRoster[i].EXM2;
+		cout << "\n\n";
 		cin.ignore(32, '\n');
 		
 		//Calculate the averages and determine letter grade
-		hwTotal = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
-		exTotal = tempRoster[i].EXM1 + tempRoster[i].EXM2;
+		//Consider putting this as a method inside of the student class
+		tempRoster[i].TOTALHW = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
+		tempRoster[i].TOTALEX = tempRoster[i].EXM1 + tempRoster[i].EXM2;
 
-		percentage = ceil(Calculations(hwTotal, exTotal));
+		percentage = ceil(Calculations(tempRoster[i].TOTALHW, tempRoster[i].TOTALEX));
 		tempRoster[i].PRCT = percentage;
 
 		//Think about changing this to a switch for readability...
@@ -96,7 +99,6 @@ void Roster(Student tempRoster[5])
 		{
 			tempRoster[i].grade = 'F';
 		}
-		//cout << percentage << ' ' << tempRoster[i].grade << endl;
 	}
 }
 
@@ -113,12 +115,18 @@ float Calculations(float hwPts, float examPts)
 //Print all student information
 void Print(Student localRoster[5]) //Print Student/Class information
 {
-	for(int i = 0; i >= 5; i++)
+	float avgEX1, avgEX2;
+
+	for(int i = 0; i < 5; i++)
 	{
 		//Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
-		
+		cout << localRoster[i].name << "\n_______________\nTotal Homework Score:\t" << localRoster[i].TOTALHW << "\nTotal Exam Score:\t" << localRoster[i].TOTALEX 
+			<< "\nClass Percentage:\t" << localRoster[i].PRCT  + '%' << "\nFinal Grade:\t" << localRoster[i].grade << endl;
 		//Calculate and print the average exam 1 score and the average exam 2 score
-		//
-		//Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
+		avgEX1 += localRoster[i].EXM1;
+		avgEX2 += localRoster[i].EXM2;
+		//Calculate and print how many of each letter grade was given for the students. That is, how many A's, how many B's, etc.
+
 	}
+	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
 }
