@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <map> //Testing maps to keep track of grades
 using namespace std;
 
 //TODO
@@ -16,13 +17,14 @@ using namespace std;
 		x 70 - 79.4 = C
 		x 60 - 69.4 = D
 		x 59.4 = F
-	4. Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
-	5. Calculate and print the average exam 1 score and the average exam 2 score
-	6. Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
+	x Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
+	x Calculate and print the average exam 1 score and the average exam 2 score
+	x Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
 
 	-- Include check to make sure only strings are entered for name variables
 	-- Include check to make sure only numbers are entered for scores
 	-- Set a maximum number of students you can enter (change array to dynamically sized)
+	-- Clean up output code
 */
 
 //Student Class
@@ -57,12 +59,14 @@ void Roster(Student tempRoster[5])
 	{
 		cout << "Enter student name: ";
 		cin.getline(tempRoster[i].name, 32);
+		//Need to limit Homework points to >26
 		cout << "Enter " << tempRoster[i].name << "'s Homework 1 points: ";
 		cin >> tempRoster[i].HWK1;
 		cout << "Enter " << tempRoster[i].name << "'s  Homework 2 points: ";
 		cin >> tempRoster[i].HWK2;
 		cout << "Enter  " << tempRoster[i].name << "'s Homework 3 points: ";
 		cin >> tempRoster[i].HWK3;
+		//Need to limit Exam points to >101
 		cout << "Enter " << tempRoster[i].name << "'s Exam 1 points: ";
 		cin >> tempRoster[i].EXM1;
 		cout << "Enter " << tempRoster[i].name << "'s Exam 2 points: ";
@@ -115,8 +119,11 @@ float Calculations(float hwPts, float examPts)
 //Print all student information
 void Print(Student localRoster[5]) //Print Student/Class information
 {
-	float avgEX1, avgEX2;
+	float avgEX1 = 0, avgEX2 = 0;
+	map<char, int> TotalGrades;
 
+	TotalGrades['A', 'B', 'C', 'D', 'F'] = 0;
+	system("CLS");
 	for(int i = 0; i < 5; i++)
 	{
 		//Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
@@ -125,8 +132,16 @@ void Print(Student localRoster[5]) //Print Student/Class information
 		//Calculate and print the average exam 1 score and the average exam 2 score
 		avgEX1 += localRoster[i].EXM1;
 		avgEX2 += localRoster[i].EXM2;
-		//Calculate and print how many of each letter grade was given for the students. That is, how many A's, how many B's, etc.
+		//Calculate how many of each letter grade was given for the students
+		//Using a map here to keep track of the grades given to all students, the key is the char for the letter grade ('A', 'B', etc.)
+		TotalGrades[localRoster[i].grade] += 1;
 
 	}
-	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
+	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl; //using 5 as the base division for average per hw example
+	cout << "Total Class Grades: " << 
+		"\nA - " << TotalGrades['A'] <<
+		"\nB - " << TotalGrades['B'] << 
+		"\nC - " << TotalGrades['C'] << 
+		"\nD - " << TotalGrades['D'] << 
+		"\nF - " << TotalGrades['F'] << endl;
 }
