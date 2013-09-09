@@ -34,7 +34,23 @@ class Student
 		char name[32], grade;
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
 		float TOTALHW, TOTALEX;
+
+		//Member function declarations
+		float getTotalHW(void);
+		float getTotalEX(void);
 };
+
+float Student::getTotalHW(void)
+{
+	//Get total homework points
+	return HWK1 + HWK2 + HWK3;
+}
+
+float Student::getTotalEX(void)
+{
+	//Get total exam points
+	return EXM1 + EXM2;
+}
 
 //Prototypes
 void Roster(Student tempRoster[5]);
@@ -73,13 +89,8 @@ void Roster(Student tempRoster[5])
 		cin >> tempRoster[i].EXM2;
 		cout << "\n\n";
 		cin.ignore(32, '\n');
-		
-		//Calculate the averages and determine letter grade
-		//Consider putting this as a method inside of the student class
-		tempRoster[i].TOTALHW = tempRoster[i].HWK1 + tempRoster[i].HWK2 + tempRoster[i].HWK3;
-		tempRoster[i].TOTALEX = tempRoster[i].EXM1 + tempRoster[i].EXM2;
 
-		percentage = ceil(Calculations(tempRoster[i].TOTALHW, tempRoster[i].TOTALEX));
+		percentage = ceil(Calculations(tempRoster[i].getTotalHW(), tempRoster[i].getTotalEX()));
 		tempRoster[i].PRCT = percentage;
 
 		//Think about changing this to a switch for readability...
@@ -124,20 +135,45 @@ void Print(Student localRoster[5]) //Print Student/Class information
 
 	TotalGrades['A', 'B', 'C', 'D', 'F'] = 0;
 	system("CLS");
+
+	//Headers per category
+	cout << setprecision(0) << fixed << endl;
+	cout << setw(20) << left << 
+		"NAME" << right << setw(4) << 
+		"HW1" << setw(4) << 
+		"HW2" << setw(4) << 
+		"HW3" << setw(9) << 
+		"HW_TOTAL" << setw(6) << 
+		"EXAM1" << setw(6) << 
+		"EXAM2" << setw(9) << 
+		"EX_TOTAL" << setw(4) << 
+		"%" << setw(6) << 
+		"GRADE" << endl;
+
 	for(int i = 0; i < 5; i++)
 	{
-		//Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
-		cout << localRoster[i].name << "\n_______________\nTotal Homework Score:\t" << localRoster[i].TOTALHW << "\nTotal Exam Score:\t" << localRoster[i].TOTALEX 
-			<< "\nClass Percentage:\t" << localRoster[i].PRCT  + '%' << "\nFinal Grade:\t" << localRoster[i].grade << endl;
-		//Calculate and print the average exam 1 score and the average exam 2 score
+		cout << left << setw(strlen(localRoster[i].name)) << localRoster[i].name << 
+			setw(18-strlen(localRoster[i].name)) << 
+			localRoster[i].HWK1 << setw(4) << 
+			localRoster[i].HWK2 << setw(4) << 
+			localRoster[i].HWK3 << setw(9) << 
+			localRoster[i].getTotalHW() << setw(6) << 
+			localRoster[i].EXM1 << setw(6) << 
+			localRoster[i].EXM2 << setw(9) << 
+			localRoster[i].getTotalEX() << setw(4) << 
+			localRoster[i].PRCT << setw(6) << 
+			localRoster[i].grade << endl;
+
+		//Calculate the average exam 1 score and the average exam 2 score
+		//Adding each exam score to local var
 		avgEX1 += localRoster[i].EXM1;
 		avgEX2 += localRoster[i].EXM2;
+		
 		//Calculate how many of each letter grade was given for the students
 		//Using a map here to keep track of the grades given to all students, the key is the char for the letter grade ('A', 'B', etc.)
 		TotalGrades[localRoster[i].grade] += 1;
-
 	}
-	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl; //using 5 as the base division for average per hw example
+	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
 	cout << "Total Class Grades: " << 
 		"\nA - " << TotalGrades['A'] <<
 		"\nB - " << TotalGrades['B'] << 
