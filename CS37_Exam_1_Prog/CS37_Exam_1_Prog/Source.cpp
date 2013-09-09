@@ -31,14 +31,23 @@ using namespace std;
 class Student
 {
 	public:
-		char name[32], grade;
+		char name[20], grade;
 		float HWK1, HWK2, HWK3, EXM1, EXM2, PRCT;
 		float TOTALHW, TOTALEX;
 
 		//Member function declarations
+		//string setFirstName(void);
+		//string setLastName(void);
 		float getTotalHW(void);
 		float getTotalEX(void);
+	//private:
+	//	string fName, lName;
 };
+
+//string Student::setFirstName
+//{
+//	return fName;
+//}
 
 float Student::getTotalHW(void)
 {
@@ -73,8 +82,8 @@ void Roster(Student tempRoster[5])
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << "Enter student name: ";
-		cin.getline(tempRoster[i].name, 32);
+		cout << "Enter full student name: ";
+		cin.getline(tempRoster[i].name, 20);
 		//Need to limit Homework points to >26
 		cout << "Enter " << tempRoster[i].name << "'s Homework 1 points: ";
 		cin >> tempRoster[i].HWK1;
@@ -88,7 +97,7 @@ void Roster(Student tempRoster[5])
 		cout << "Enter " << tempRoster[i].name << "'s Exam 2 points: ";
 		cin >> tempRoster[i].EXM2;
 		cout << "\n\n";
-		cin.ignore(32, '\n');
+		cin.ignore(21, '\n');
 
 		percentage = ceil(Calculations(tempRoster[i].getTotalHW(), tempRoster[i].getTotalEX()));
 		tempRoster[i].PRCT = percentage;
@@ -138,7 +147,7 @@ void Print(Student localRoster[5]) //Print Student/Class information
 
 	//Headers per category
 	cout << setprecision(0) << fixed << endl;
-	cout << setw(20) << left << 
+	cout << setw(20) << left <<
 		"NAME" << right << setw(4) << 
 		"HW1" << setw(4) << 
 		"HW2" << setw(4) << 
@@ -152,8 +161,9 @@ void Print(Student localRoster[5]) //Print Student/Class information
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << left << setw(strlen(localRoster[i].name)) << localRoster[i].name << 
-			setw(18-strlen(localRoster[i].name)) << 
+		cout << left << setw(strlen(s[i].last)) << 
+			s[i].last << ", " << setw(18-strlen(s[i].last)) << 
+			localRoster[i].name << setw(4) << right <<
 			localRoster[i].HWK1 << setw(4) << 
 			localRoster[i].HWK2 << setw(4) << 
 			localRoster[i].HWK3 << setw(9) << 
