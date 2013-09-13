@@ -1,3 +1,7 @@
+//Justine Gee
+//Kevin Wu
+//Raul Gutierrez
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -84,7 +88,7 @@ void Roster(Student tempRoster[5])												//Student Information
 		cin >> tempRoster[i].HWK1;
 		cout << "Enter " << tempRoster[i].fName << "'s  Homework 2 points: ";
 		cin >> tempRoster[i].HWK2;
-		cout << "Enter  " << tempRoster[i].fName << "'s Homework 3 points: ";
+		cout << "Enter " << tempRoster[i].fName << "'s Homework 3 points: ";
 		cin >> tempRoster[i].HWK3;
 		cout << "Enter " << tempRoster[i].fName << "'s Exam 1 points: ";		//Need to limit Exam points to >101
 		cin >> tempRoster[i].EXM1;
@@ -144,9 +148,9 @@ void Print(Student localRoster[5])												//Print Student/Class information
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << left << localRoster[i].fName.length() << 
+		cout << left << setw(localRoster[i].lName.length()) << 
 			localRoster[i].lName << ", " << setw(18 - localRoster[i].lName.length()) << 
-			localRoster[i].fullName << setw(4) << right <<
+			localRoster[i].fName << setw(4) << right <<
 			localRoster[i].HWK1 << setw(4) << 
 			localRoster[i].HWK2 << setw(4) << 
 			localRoster[i].HWK3 << setw(9) << 
@@ -164,11 +168,34 @@ void Print(Student localRoster[5])												//Print Student/Class information
 		TotalGrades[localRoster[i].grade] += 1;								//Calculate how many of each letter grade was given for the students
 		
 	}
-	cout << "Class Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
-	cout << "Total Class Grades: " << 
+	cout << "\nClass Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
+	cout << "\nTotal Class Grades: " << 
 		"\nA - " << TotalGrades['A'] <<
 		"\nB - " << TotalGrades['B'] << 
 		"\nC - " << TotalGrades['C'] << 
 		"\nD - " << TotalGrades['D'] << 
 		"\nF - " << TotalGrades['F'] << endl;
 }
+
+/*
+
+
+NAME                 HW1 HW2 HW3 HW_TOTAL EXAM1 EXAM2 EX_TOTAL   % GRADE
+Lee, Jim              18  20  18       56    80    85      165  80     B
+Parker, Peter         24  24  23       71    98    99      197  97     A
+Tyson, Mike           12  10   8       30    40    35       75  39     F
+Hope, Bob             18  20  19       57    75    80      155  77     C
+Field, Sally          14  15  17       46    60    65      125  63     D
+
+Class Exam 1 Average:   71
+Class Exam 2 Average:   73
+
+Total Class Grades:
+A - 1
+B - 1
+C - 1
+D - 1
+F - 1
+
+Press any key to continue . . .
+*/
