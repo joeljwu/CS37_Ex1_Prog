@@ -86,7 +86,7 @@ void Roster(Student tempRoster[5])												//Student Information
 		tempRoster[i].splitName(tempRoster[i].fullName);						//Split up the first and last names
 		cout << "Enter " << tempRoster[i].fName << "'s Homework 1 points: ";	//Need to limit Homework points to >26, use another for loop
 		cin >> tempRoster[i].HWK1;
-		cout << "Enter " << tempRoster[i].fName << "'s  Homework 2 points: ";
+		cout << "Enter " << tempRoster[i].fName << "'s Homework 2 points: ";
 		cin >> tempRoster[i].HWK2;
 		cout << "Enter " << tempRoster[i].fName << "'s Homework 3 points: ";
 		cin >> tempRoster[i].HWK3;
@@ -95,7 +95,7 @@ void Roster(Student tempRoster[5])												//Student Information
 		cout << "Enter " << tempRoster[i].fName << "'s Exam 2 points: ";
 		cin >> tempRoster[i].EXM2;
 		cout << "\n\n";
-		cin.ignore(21, '\n');													//Flush the buffer
+		cin.ignore(32, '\n');													//Flush the buffer
 
 		percentage = ceil(Calculations(tempRoster[i].getTotalHW(), tempRoster[i].getTotalEX()));
 
@@ -174,11 +174,48 @@ void Print(Student localRoster[5])												//Print Student/Class information
 		"\nB - " << TotalGrades['B'] << 
 		"\nC - " << TotalGrades['C'] << 
 		"\nD - " << TotalGrades['D'] << 
-		"\nF - " << TotalGrades['F'] << endl;
+		"\nF - " << TotalGrades['F'] << "\n" << endl;
 }
 
 /*
+Enter full student name: Jim Lee
+Enter Jim's Homework 1 points: 18
+Enter Jim's  Homework 2 points: 20
+Enter Jim's Homework 3 points: 18
+Enter Jim's Exam 1 points: 80
+Enter Jim's Exam 2 points: 85
 
+
+Enter full student name: Peter Parker
+Enter Peter's Homework 1 points: 24
+Enter Peter's  Homework 2 points: 24
+Enter Peter's Homework 3 points: 23
+Enter Peter's Exam 1 points: 98
+Enter Peter's Exam 2 points: 99
+
+
+Enter full student name: Mike Tyson
+Enter Mike's Homework 1 points: 12
+Enter Mike's  Homework 2 points: 10
+Enter Mike's Homework 3 points: 8
+Enter Mike's Exam 1 points: 40
+Enter Mike's Exam 2 points: 35
+
+
+Enter full student name: Bob Hope
+Enter Bob's Homework 1 points: 18
+Enter Bob's  Homework 2 points: 20
+Enter Bob's Homework 3 points: 19
+Enter Bob's Exam 1 points: 75
+Enter Bob's Exam 2 points: 80
+
+
+Enter full student name: Sally Field
+Enter Sally's Homework 1 points: 14
+Enter Sally's  Homework 2 points: 15
+Enter Sally's Homework 3 points: 17
+Enter Sally's Exam 1 points: 60
+Enter Sally's Exam 2 points: 65
 
 NAME                 HW1 HW2 HW3 HW_TOTAL EXAM1 EXAM2 EX_TOTAL   % GRADE
 Lee, Jim              18  20  18       56    80    85      165  80     B
