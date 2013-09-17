@@ -1,5 +1,5 @@
 //Justine Gee
-//Kevin Wu
+//Joel Wu
 //Raul Gutierrez
 
 #include <iostream>
