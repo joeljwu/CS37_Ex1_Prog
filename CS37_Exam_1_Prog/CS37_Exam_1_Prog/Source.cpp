@@ -25,6 +25,11 @@ using namespace std;
 	x Print out the name for each student followed by the results of your three calculations from Task 2 and the letter grade
 	x Calculate and print the average exam 1 score and the average exam 2 score
 	x Calculate and print how many ofeach letter grade was given for the students. That is, how many A's, how many B's, etc.
+
+	-- Include check to make sure only strings are entered for name variables
+	-- Include check to make sure only numbers are entered for scores
+	-- Set a maximum number of students you can enter (change array to dynamically sized? Vector?)
+	-- Clean up output code
 */
 
 class Student																	//Student Class
