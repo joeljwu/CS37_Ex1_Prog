@@ -75,42 +75,42 @@ void main()																		//Main
 	Print(Students);
 }
 
-void Roster(Student tempRoster[5])												//Student Information
+void Roster(Student temp[5])													//Student Information
 {
 	float percentage;
 
 	for(int i = 0; i < 5; i++)
 	{
 		cout << "Enter full student name: ";
-		getline(cin, tempRoster[i].fullName);									//Store full name
-		tempRoster[i].splitName(tempRoster[i].fullName);						//Split up the first and last names
-		cout << "Enter " << tempRoster[i].fName << "'s Homework 1 points: ";	//Need to limit Homework points to >26, use another for loop
-		cin >> tempRoster[i].HWK1;
-		cout << "Enter " << tempRoster[i].fName << "'s Homework 2 points: ";
-		cin >> tempRoster[i].HWK2;
-		cout << "Enter " << tempRoster[i].fName << "'s Homework 3 points: ";
-		cin >> tempRoster[i].HWK3;
-		cout << "Enter " << tempRoster[i].fName << "'s Exam 1 points: ";		//Need to limit Exam points to >101
-		cin >> tempRoster[i].EXM1;
-		cout << "Enter " << tempRoster[i].fName << "'s Exam 2 points: ";
-		cin >> tempRoster[i].EXM2;
-		cout << "\n\n";
+		getline(cin, temp[i].fullName);											//Store full name
+		temp[i].splitName(temp[i].fullName);									//Split up the first and last names
+		cout << "Enter " << temp[i].fName << "'s Homework 1 points: ";
+		cin >> temp[i].HWK1;
+		cout << "Enter " << temp[i].fName << "'s Homework 2 points: ";
+		cin >> temp[i].HWK2;
+		cout << "Enter " << temp[i].fName << "'s Homework 3 points: ";
+		cin >> temp[i].HWK3;
+		cout << "Enter " << temp[i].fName << "'s Exam 1 points: ";
+		cin >> temp[i].EXM1;
+		cout << "Enter " << temp[i].fName << "'s Exam 2 points: ";
+		cin >> temp[i].EXM2;
+		cout << "\n";
 		cin.ignore(32, '\n');													//Flush the buffer
 
-		percentage = ceil(Calculations(tempRoster[i].getTotalHW(), tempRoster[i].getTotalEX()));
+		percentage = ceil(Calculations(temp[i].getTotalHW(), temp[i].getTotalEX()));
 
-		tempRoster[i].PRCT = percentage;
+		temp[i].PRCT = percentage;
 
 		if(percentage >= 90)													//Think about changing this to a switch for readability...
-			tempRoster[i].grade = 'A';
+			temp[i].grade = 'A';
 		else if(percentage < 90 && percentage >= 80)
-			tempRoster[i].grade = 'B';
+			temp[i].grade = 'B';
 		else if(percentage < 80 && percentage >= 70)
-			tempRoster[i].grade = 'C';
+			temp[i].grade = 'C';
 		else if(percentage < 70 && percentage >= 60)
-			tempRoster[i].grade = 'D';
+			temp[i].grade = 'D';
 		else
-			tempRoster[i].grade = 'F';
+			temp[i].grade = 'F';
 	}
 }
 
@@ -123,7 +123,7 @@ float Calculations(float hwPts, float examPts)									//Calculate percentage fo
 	return percentage;
 }
 
-void Print(Student localRoster[5])												//Print Student/Class information
+void Print(Student students[5])													//Print Student/Class information
 {
 	float avgEX1 = 0, avgEX2 = 0;												//Placeholders for Exam Average counts
 
@@ -148,24 +148,24 @@ void Print(Student localRoster[5])												//Print Student/Class information
 
 	for(int i = 0; i < 5; i++)
 	{
-		cout << left << setw(localRoster[i].lName.length()) << 
-			localRoster[i].lName << ", " << setw(18 - localRoster[i].lName.length()) << 
-			localRoster[i].fName << setw(4) << right <<
-			localRoster[i].HWK1 << setw(4) << 
-			localRoster[i].HWK2 << setw(4) << 
-			localRoster[i].HWK3 << setw(9) << 
-			localRoster[i].getTotalHW() << setw(6) << 
-			localRoster[i].EXM1 << setw(6) << 
-			localRoster[i].EXM2 << setw(9) << 
-			localRoster[i].getTotalEX() << setw(4) << 
-			localRoster[i].PRCT << setw(6) << 
-			localRoster[i].grade << endl;
+		cout << left << setw(students[i].lName.length()) << 
+			students[i].lName << ", " << setw(18 - students[i].lName.length()) << 
+			students[i].fName << setw(4) << right <<
+			students[i].HWK1 << setw(4) << 
+			students[i].HWK2 << setw(4) << 
+			students[i].HWK3 << setw(9) << 
+			students[i].getTotalHW() << setw(6) << 
+			students[i].EXM1 << setw(6) << 
+			students[i].EXM2 << setw(9) << 
+			students[i].getTotalEX() << setw(4) << 
+			students[i].PRCT << setw(6) << 
+			students[i].grade << endl;
 
-		avgEX1 += localRoster[i].EXM1;										//Calculate the average exam 1 score and the average exam 2 score
-		avgEX2 += localRoster[i].EXM2;							
+		avgEX1 += students[i].EXM1;												//Calculate the average exam 1 score and the average exam 2 score
+		avgEX2 += students[i].EXM2;							
 
 		
-		TotalGrades[localRoster[i].grade] += 1;								//Calculate how many of each letter grade was given for the students
+		TotalGrades[students[i].grade] += 1;									//Calculate how many of each letter grade was given for the students
 		
 	}
 	cout << "\nClass Exam 1 Average:\t" << avgEX1 / 5 << "\nClass Exam 2 Average:\t" << avgEX2 / 5 << endl;
