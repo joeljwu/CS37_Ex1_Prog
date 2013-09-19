@@ -178,59 +178,56 @@ void Print(Student students[5])													//Print Student/Class information
 }
 
 /*
-Enter full student name: Jim Lee
-Enter Jim's Homework 1 points: 18
-Enter Jim's  Homework 2 points: 20
-Enter Jim's Homework 3 points: 18
-Enter Jim's Exam 1 points: 80
-Enter Jim's Exam 2 points: 85
+Enter full student name: Joe Expert
+Enter Joe's Homework 1 points: 15
+Enter Joe's Homework 2 points: 25
+Enter Joe's Homework 3 points: 20
+Enter Joe's Exam 1 points: 75
+Enter Joe's Exam 2 points: 85
 
+Enter full student name: Mary Jones
+Enter Mary's Homework 1 points: 22
+Enter Mary's Homework 2 points: 24
+Enter Mary's Homework 3 points: 20
+Enter Mary's Exam 1 points: 94
+Enter Mary's Exam 2 points: 89
 
-Enter full student name: Peter Parker
-Enter Peter's Homework 1 points: 24
-Enter Peter's  Homework 2 points: 24
-Enter Peter's Homework 3 points: 23
-Enter Peter's Exam 1 points: 98
-Enter Peter's Exam 2 points: 99
+Enter full student name: Scott James
+Enter Scott's Homework 1 points: 15
+Enter Scott's Homework 2 points: 16
+Enter Scott's Homework 3 points: 20
+Enter Scott's Exam 1 points: 58
+Enter Scott's Exam 2 points: 75
 
+Enter full student name: Stupid One
+Enter Stupid's Homework 1 points: 2
+Enter Stupid's Homework 2 points: 3
+Enter Stupid's Homework 3 points: 4
+Enter Stupid's Exam 1 points: 10
+Enter Stupid's Exam 2 points: 8
 
-Enter full student name: Mike Tyson
-Enter Mike's Homework 1 points: 12
-Enter Mike's  Homework 2 points: 10
-Enter Mike's Homework 3 points: 8
-Enter Mike's Exam 1 points: 40
-Enter Mike's Exam 2 points: 35
+Enter full student name: Cindy Brown
+Enter Cindy's Homework 1 points: 25
+Enter Cindy's Homework 2 points: 24
+Enter Cindy's Homework 3 points: 25
+Enter Cindy's Exam 1 points: 99
+Enter Cindy's Exam 2 points: 94
 
-
-Enter full student name: Bob Hope
-Enter Bob's Homework 1 points: 18
-Enter Bob's  Homework 2 points: 20
-Enter Bob's Homework 3 points: 19
-Enter Bob's Exam 1 points: 75
-Enter Bob's Exam 2 points: 80
-
-
-Enter full student name: Sally Field
-Enter Sally's Homework 1 points: 14
-Enter Sally's  Homework 2 points: 15
-Enter Sally's Homework 3 points: 17
-Enter Sally's Exam 1 points: 60
-Enter Sally's Exam 2 points: 65
 
 NAME                 HW1 HW2 HW3 HW_TOTAL EXAM1 EXAM2 EX_TOTAL   % GRADE
-Lee, Jim              18  20  18       56    80    85      165  80     B
-Parker, Peter         24  24  23       71    98    99      197  97     A
-Tyson, Mike           12  10   8       30    40    35       75  39     F
-Hope, Bob             18  20  19       57    75    80      155  77     C
-Field, Sally          14  15  17       46    60    65      125  63     D
+Expert, Joe           15  25  20       60    75    85      160  81     B
+Jones, Mary           22  24  20       66    94    89      183  91     A
+James, Scott          15  16  20       51    58    75      133  68     D
+One, Stupid            2   3   4        9    10     8       18  11     F
+Brown, Cindy          25  24  25       74    99    94      193  98     A
 
-Class Exam 1 Average:   71
-Class Exam 2 Average:   73
+Class Exam 1 Average:   67
+Class Exam 2 Average:   70
 
 Total Class Grades:
-A - 1
+A - 2
 B - 1
-C - 1
+C - 0
 D - 1
 F - 1
 
