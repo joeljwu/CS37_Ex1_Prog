@@ -97,7 +97,7 @@ void Roster(Student temp[5])													//Student Information
 		cout << "\n";
 		cin.ignore(32, '\n');													//Flush the buffer
 
-		percentage = ceil(Calculations(temp[i].getTotalHW(), temp[i].getTotalEX()));
+		percentage = Calculations(temp[i].getTotalHW(), temp[i].getTotalEX());
 
 		temp[i].PRCT = percentage;
 
@@ -215,11 +215,11 @@ Enter Cindy's Exam 2 points: 94
 
 
 NAME                 HW1 HW2 HW3 HW_TOTAL EXAM1 EXAM2 EX_TOTAL   % GRADE
-Expert, Joe           15  25  20       60    75    85      160  81     B
-Jones, Mary           22  24  20       66    94    89      183  91     A
-James, Scott          15  16  20       51    58    75      133  68     D
-One, Stupid            2   3   4        9    10     8       18  11     F
-Brown, Cindy          25  24  25       74    99    94      193  98     A
+Expert, Joe           15  25  20       60    75    85      160  80     B
+Jones, Mary           22  24  20       66    94    89      183  90     A
+James, Scott          15  16  20       51    58    75      133  67     D
+One, Stupid            2   3   4        9    10     8       18  10     F
+Brown, Cindy          25  24  25       74    99    94      193  97     A
 
 Class Exam 1 Average:   67
 Class Exam 2 Average:   70
